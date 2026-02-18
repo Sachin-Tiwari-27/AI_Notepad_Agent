@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 .env
 ./data/*
+./data/new_notes.txt
+./data/my_notes.txt
