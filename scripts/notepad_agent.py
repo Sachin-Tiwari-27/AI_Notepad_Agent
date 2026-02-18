@@ -3,8 +3,10 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 
+FILE_DIR = "./data/"
+
 # Connect to your local Ollama model (server must be running!)
-llm = OllamaLLM(model="phi3.5", temperature=0.7)
+llm = OllamaLLM(model="qwen2.5:3b", temperature=0.7)
 
 # Simple prompt template - tells the AI how to behave
 prompt = PromptTemplate.from_template(
@@ -20,7 +22,7 @@ chain = prompt | llm | StrOutputParser()
 
 # Function to save notes to a file
 def save_to_notepad(content):
-    with open("my_notes.txt", "a", encoding="utf-8") as f:
+    with open(FILE_DIR + "my_notes.txt", "a", encoding="utf-8") as f:
         f.write("\n---\n" + content + "\n")
     print("Notes saved to my_notes.txt!")
 
